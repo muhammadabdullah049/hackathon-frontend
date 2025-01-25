@@ -6,7 +6,8 @@ import Index from "./pages/Index";
 import Signin from "./pages/Sign";
 import Signup from "./pages/Signup";
 import User from "./pages/Dashboards/User";
-import Admin from "./pages/Dashboards/AdminDashboard";
+import AdminDashboard from "./pages/Dashboards/AdminDashboard";
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [role, setRole] = useState("");
@@ -77,7 +78,7 @@ function App() {
           }
         />
         <Route path="/user/dashboard" element={<User />} />
-        <Route path="/admin/dashboard" element={<Admin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </>
   );
