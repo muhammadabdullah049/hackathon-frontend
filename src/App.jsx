@@ -6,7 +6,7 @@ import Index from "./pages/Index";
 import Signin from "./pages/Sign";
 import Signup from "./pages/Signup";
 import User from "./pages/Dashboards/User";
-import AdminDashboard from "./pages/Dashboards/AdminDashboard";
+import AdminDashboard from "./pages/Dashboards/AdminDashboard.jsx";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
