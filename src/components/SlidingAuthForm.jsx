@@ -11,7 +11,7 @@ import {
 
 const SlidingAuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
-  
+
 
   const onFinish = (values) => {
     console.log("Received values:", values);
