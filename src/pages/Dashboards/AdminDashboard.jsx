@@ -9,7 +9,7 @@ import ChartAdmin from "../../components/adminComponents/ChartAdmin";
 const { Content } = Layout;
 const { Title, Text } = Typography;
 
-const Admin = () => {
+const AdminDashboard = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -128,4 +128,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminDashboard;
