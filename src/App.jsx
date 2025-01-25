@@ -7,6 +7,7 @@ import Signin from "./pages/Sign";
 import Signup from "./pages/Signup";
 import User from "./pages/Dashboards/User";
 import AdminDashboard from "./pages/Dashboards/AdminDashboard.jsx";
+import LoanFormDetails from "./components/userComponents/LoanFormDetails.jsx";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -79,6 +80,7 @@ function App() {
         />
         <Route path="/user/dashboard" element={<User />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/loan-form-details" element={<LoanFormDetails />}/>
       </Routes>
     </>
   );
