@@ -5,8 +5,10 @@ import Cookies from "js-cookie";
 import Index from "./pages/Index";
 import Signin from "./pages/Sign";
 import Signup from "./pages/Signup";
-import User from "./pages/Dashboards/User";
+// import User from "./pages/Dashboards/User";
 import Admin from "./pages/Dashboards/admin";
+import User from "./pages/Dashboards/User";
+// import Admin from "./pages/Dashboards/admin";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
