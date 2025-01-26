@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button, Form, Input, Modal, Select } from "antd";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { AppRoutes } from "../../../constant/constant";
 
 const loanCategories = [
   {
@@ -95,10 +97,58 @@ const yearsOptions = [
 ];
 
 const Hero = () => {
+  const [loanCategories, setLoanCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentSubCategory, setCurrentSubCategory] = useState(null);
 
+  useEffect(() => {
+    const fetchLoanCategories = async () => {
+      try {
+        const response = await axios.get(AppRoutes.loanCategories);
+        console.log("loanCategoriesRes=>", response.data); // Logging the parsed data directly
+
+        const fetchedData = response.data;
+        console.log("fetchedData=>", fetchedData);
+
+
+        if (response.headers["content-type"].includes("application/json")) {
+          setLoanCategories(response.data.loanCategory);
+        } else {
+          console.error("Invalid JSON response");
+        }
+      } catch (error) {
+        console.error("Failed to fetch loan categories:", error.message);
+      }
+    };
+
+    fetchLoanCategories();
+  }, []);
+
+  useEffect(() => {
+    const fetchSubCategories = async () => {
+      try {
+        const requestData = {
+          // Replace these fields with the actual required fields
+          field1: "value1",
+          field2: "value2",
+        };
+
+        const response = await axios.post(
+          AppRoutes.subLoanCategories,
+          requestData
+        );
+        console.log("Sub-response=>", response.data);
+      } catch (error) {
+        console.error(
+          "Error fetching sub-loan categories:",
+          error.response?.data || error.message
+        );
+      }
+    };
+    fetchSubCategories();
+    fetchSubCategories();
+  }, []);
   const handleLearnMoreClick = (category) => {
     setSelectedCategory(category);
   };
@@ -277,7 +327,7 @@ const Hero = () => {
                 className="relative rounded-lg bg-gray-100 shadow-lg overflow-hidden"
               >
                 <img
-                  src={category.image}
+                  src={category.imageUrl}
                   alt={category.title}
                   className="h-48 w-full object-cover"
                 />

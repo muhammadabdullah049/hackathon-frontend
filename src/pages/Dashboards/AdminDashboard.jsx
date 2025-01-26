@@ -24,10 +24,7 @@ const AdminDashboard = () => {
   }
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <SidebarAdmin />
-      <Layout className="site-layout">
-        <NavbarAdmin />
+    <Layout className="mt-10" style={{ minHeight: "100vh" }}>
         <Content style={{ padding: "20px 50px", marginTop: 20 }}>
           <Title level={2}>Admin Dashboard</Title>
           <Row gutter={16}>
@@ -123,7 +120,6 @@ const AdminDashboard = () => {
             </Col>
           </Row>
         </Content>
-      </Layout>
     </Layout>
   );
 };

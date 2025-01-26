@@ -13,7 +13,7 @@ const NavbarAdmin = () => {
   };
 
   return (
-    <Header className="site-layout-background" style={{ padding: 0 }}>
+    <Header className="site-layout-background fixed w-full z-10" style={{ padding: 0 }}>
       <div
         style={{
           display: "flex",
@@ -21,7 +21,9 @@ const NavbarAdmin = () => {
           alignItems: "center",
         }}
       >
-        <div style={{ fontSize: 24, fontWeight: "bold" }}>Admin Dashboard</div>
+        <div className="text-white font-bold text-2xl my-4 mx-4">
+          Welcome to Admin Dashboard
+        </div>
         <Button type="primary" onClick={handleLogout}>
           Logout
         </Button>

@@ -8,6 +8,8 @@ import Signup from "./pages/Signup";
 import User from "./pages/Dashboards/User";
 import AdminDashboard from "./pages/Dashboards/AdminDashboard.jsx";
 import LoanFormDetails from "./components/userComponents/LoanFormDetails.jsx";
+import AddLoans from "./pages/AddLoans.jsx";
+import SidebarAdmin from "./components/adminComponents/SidebarAdmin.jsx";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -78,9 +80,12 @@ function App() {
             )
           }
         />
+        <Route path={"/admin"} element={<SidebarAdmin />}>
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="add-loans" element={<AddLoans />} />
+        </Route>
         <Route path="/user/dashboard" element={<User />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/loan-form-details" element={<LoanFormDetails />}/>
+        <Route path="/loan-form-details" element={<LoanFormDetails />} />
       </Routes>
     </>
   );
